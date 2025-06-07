@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Miolo Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Miolo Maker</h1>
+        <div class="actions">
+            <button id="duplicate" title="Gerar frente e verso">Duplicar Configuracoes</button>
+            <button id="export">Exportar PDF</button>
+        </div>
+    </header>
+    <div class="container">
+        <aside>
+            <form id="controls">
+                <label for="ruling">Tipo de pauta</label>
+                <select id="ruling" name="ruling">
+                    <option value="none">Sem Pauta</option>
+                    <option value="wide">Pauta Larga (8 mm)</option>
+                    <option value="college">Pauta Universitaria (7 mm)</option>
+                    <option value="narrow">Pauta Estreita (6 mm)</option>
+                    <option value="calligraphy">Caligrafia (tres linhas)</option>
+                    <option value="grid">Quadriculado 5 mm</option>
+                    <option value="dot">Pontilhado 5 mm</option>
+                    <option value="seyes">Seyes (grands carreaux)</option>
+                    <option value="iso">Isometrico</option>
+                    <option value="hex">Hexagonal</option>
+                </select>
+                <label><input type="checkbox" id="headerToggle"> Cabeçalho</label>
+                <div id="headerFields">
+                    <label for="title">Titulo do caderno</label>
+                    <input id="title" type="text">
+                    <label><input type="checkbox" id="autoDate"> Data automatica</label>
+                </div>
+                <label for="bgImage">Imagem de fundo</label>
+                <input type="file" id="bgImage" accept="image/png, image/jpeg">
+                <label for="logo">Logo</label>
+                <input type="file" id="logo" accept="image/png, image/jpeg">
+                <label for="logoPos">Posicao do logo</label>
+                <select id="logoPos">
+                    <option value="top-left">top-left</option>
+                    <option value="top-right">top-right</option>
+                    <option value="mid-left">mid-left</option>
+                    <option value="mid-right">mid-right</option>
+                    <option value="bottom-left">bottom-left</option>
+                    <option value="bottom-right">bottom-right</option>
+                </select>
+                <label for="pageSize">Tamanho da pagina</label>
+                <select id="pageSize">
+                    <option value="A4">A4</option>
+                    <option value="Letter">Letter</option>
+                    <option value="custom">Personalizado</option>
+                </select>
+                <div id="customSize">
+                    <label for="width">Largura (mm)</label>
+                    <input type="number" id="width" min="50" value="210">
+                    <label for="height">Altura (mm)</label>
+                    <input type="number" id="height" min="50" value="297">
+                </div>
+                <label for="marginLeft">Margem esquerda (mm)</label>
+                <input type="number" id="marginLeft" min="0" value="10">
+                <label for="marginRight">Margem direita (mm)</label>
+                <input type="number" id="marginRight" min="0" value="10">
+                <label for="marginTop">Margem superior (mm)</label>
+                <input type="number" id="marginTop" min="0" value="10">
+                <label for="marginBottom">Margem inferior (mm)</label>
+                <input type="number" id="marginBottom" min="0" value="10">
+                <label for="numPages">Numero de paginas</label>
+                <input type="number" id="numPages" min="1" value="1">
+                <div id="lineSpacingDiv">
+                    <label for="lineSpacing">Espacamento entre linhas</label>
+                    <input type="range" id="lineSpacing" min="4" max="12" value="8">
+                </div>
+            </form>
+        </aside>
+        <main>
+            <div id="previewContainer">
+                <svg id="preview"></svg>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
